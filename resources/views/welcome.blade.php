@@ -167,19 +167,7 @@
           </div>
           @endforeach
         </div>
-        <div class="col-md-6">
-          <div class="px-lg-3">
-            <h4 class="wow fadeInUp">Design Skills</h4>
-            
-            <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">Web Design</span>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 99%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">99%</div>
-              </div>
-            </div>
-            
-          </div>
-        </div>
+      
       </div>
      
     </div>

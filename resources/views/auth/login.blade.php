@@ -18,7 +18,7 @@
 	<meta property="og:type" content="article" />
 
     <!-- Website Title -->
-    <title>Log In - Tivo - SaaS App HTML Landing Page Template</title>
+
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Log In</h1>
-                   <p>You don't have a password? Then please <a class="white" href="sign-up.html">Sign Up</a></p> 
+                   <p>Put your info here<a class="white" href="sign-up.html"></a></p> 
                     <!-- Sign Up Form -->
                     <div class="form-container">
                         <form method="POST" action="{{ route('login') }}">
