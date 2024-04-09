@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\EducationalController;
 use App\Http\Controllers\ExperienceController;
@@ -32,7 +33,7 @@ Route::resource('/', FrontendController::class);
 
 Route::middleware(['RoleChecker:admin'])->group(function () 
 {
-    Route::resource('users', UserController::class);
+    Route::resource('admin', UserController::class);
     Route::resource('profiles', AdminController::class);
 });
 

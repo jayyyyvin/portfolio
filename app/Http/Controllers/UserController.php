@@ -10,13 +10,13 @@ class UserController extends Controller
     public function index()
     {
        
-        $users = User::latest()->get();
+        $admins = User::latest()->get();
         
         if ($users->count() > 1) { 
-            // Find the admin user, if exists
+           
             $admin = $users->where('role', 'admin')->first();
             
-            // If admin user exists, move it to the top
+            
             if ($admin) {
                 $users = $users->reject(function ($user) use ($admin) {
                     return $user->id === $admin->id;
@@ -26,32 +26,32 @@ class UserController extends Controller
             }
         }
         
-        return view('admin.index', compact('users'));
+        return view('admin.index', compact('admins'));
     }
 
     public function create()
     {
-        return view('users.create');
+     
     }
 
     public function store(Request $request)
     {
 
-        $users = new User();
+        $admins = new User();
 
-        $users->role = $request->input('role');
-        $users->name = $request->input('name');
-        $users->email = $request->input('email');
-        $users->password = bcrypt($request->input('password'));
+        $admins->role = $request->input('role');
+        $admins->name = $request->input('name');
+        $admins->email = $request->input('email');
+        $admins->password = bcrypt($request->input('password'));
 
         if ($request->hasFile('avatar')) {
             $avatarPath = $request->file('avatar')->store('avatars', 'public');
-            $users->avatar = $avatarPath;
+            $admins->avatar = $avatarPath;
         }
 
-        $users->save();
+        $admins->save();
 
-        return redirect()->route('users.index')->with('success', 'User has been created successfully');
+        return redirect()->route('admin.index')->with('success', 'User has been created successfully');
     }
 
     public function show(string $id)
@@ -67,32 +67,32 @@ class UserController extends Controller
     public function update(Request $request, string $id)
     {
 
-        $users = User::findOrFail($id);
+        $admins = User::findOrFail($id);
 
-        $users->role = $request->input('role');
-        $users->name = $request->input('name');
-        $users->email = $request->input('email');
+        $admins->role = $request->input('role');
+        $admins->name = $request->input('name');
+        $admins->email = $request->input('email');
 
         if ($request->hasFile('avatar')) {
             $avatarPath = $request->file('avatar')->store('avatars', 'public');
-            $users->avatar = $avatarPath;
+            $admins->avatar = $avatarPath;
         }
 
-        $users->save();
+        $admins->save();
 
-        return redirect()->route('users.index')->with('success', 'User has been updated successfully');
+        return redirect()->route('admin.index')->with('success', 'User has been updated successfully');
     }
 
     public function destroy(string $id)
     {
-        $users = User::findOrFail($id);
+        $admins = User::findOrFail($id);
   
-        if ($users->isAdmin()) {
-            return redirect()->route('users.index')->with('success', 'ADMIN USER CANNOT BE DELETED!!');
+        if ($admins->isAdmin()) {
+            return redirect()->route('admin.index')->with('success', 'ADMIN USER CANNOT BE DELETED!!');
         }
   
-        $users->delete();
+        $admins->delete();
   
-        return redirect()->route('users.index')->with('success', 'User has been deleted successfully');
+        return redirect()->route('admin.index')->with('success', 'User has been deleted successfully');
     }
 }

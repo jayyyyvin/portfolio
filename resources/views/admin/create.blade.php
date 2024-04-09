@@ -30,15 +30,24 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Role:</strong>
-                <select name="role" class="form-control">
-                    <option value=" " disabled>Role</option>
-                    <option value="spectator">Spectator</option>
-                </select>
-                @error('role')
+                    <select name="role" class="form-control">
+                        <option value=" " disabled>Role</option>
+                        <option value="spectator">Spectator</option>
+                    </select>
+                 @error('role')
                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                @enderror
+                 @enderror
             </div>
         </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Avatar:</strong>
+                    <input type="file" name="avatar" class="form-control" placeholder="Avatar">
+                    
+                </div>
+        </div>
+        
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Name:</strong>

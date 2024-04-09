@@ -70,6 +70,13 @@ class AdminController extends Controller
         $admin = User::findOrFail($id);
   
         $admin->update($request->all());
+
+        if ($request->hasFile('avatar')) {
+            $avatarPath = $request->file('avatar')->store('avatars', 'public');
+            $admin->avatar = $avatarPath;
+        }
+
+        $admin->save();
   
         return redirect()->route('admin.index')->with('success', 'User updated successfully');
     }

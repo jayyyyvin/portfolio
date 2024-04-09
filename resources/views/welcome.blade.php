@@ -627,17 +627,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3 py-3">
-          <div class="float-lg-right">
-            <p>Contact me</p>
-            <hr class="divider">
-            <ul class="list-unstyled">
-              <li>{{$user -> email}}</li>
-              <li>+{{$user -> phone}}</li>
-        
-            </ul>
-          </div>
-        </div>
+      
       </div>
       <div class="row justify-content-center mt-3">
        

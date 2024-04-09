@@ -50,7 +50,14 @@
                         <td>{{ $rs->subject }}</td>
                         <td>{{ $rs->message }}</td>
                         <td>
-                        </td>
+                <form action="{{ route('contacts.destroy',$rs->id) }}" method="Post">
+              
+                    @csrf
+                    @method('DELETE')
+      
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
                     </tr>
                 @endforeach
             @else

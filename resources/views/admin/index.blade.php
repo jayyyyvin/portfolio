@@ -25,20 +25,36 @@
                             <tr>
                                 <th>No.</th>
                                 <th>Role</th>
+                                <th>Avatar</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                
-                                <th width="280px">Action</th>
+                                <th width="150px">Action</th>
                             </tr>
-                            @foreach ($admin as $admin)
+                            @foreach ($admin as $user)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $admin->role }}</td>
-                                <td>{{ $admin->name }}</td>
-                                <td>{{ $admin->email }}</td>
                                 <td>
-                                    <form action="{{ route('admin.destroy',$admin->id) }}" method="Post">
-                                        <a class="btn btn-primary" href="{{ route('admin.edit',$admin->id) }}">Edit</a>
+                                    @if($user->role == 'admin')
+                                     <div class="badge badge-success">Admin</div>
+                                         @else
+                                     <div class="badge badge-primary">Spectator</div>
+                                      @endif
+                                    </td>
+                                         @if($user->avatar)
+                                          <td>
+                                              <img src="{{ asset('storage/' . $user->avatar) }}" alt="avatar" style="width: 40px; height:40px;" class="img-profile rounded-box">
+                                         </td>
+                                            @else
+                                            <td>
+                                                <img src="{{ asset('assets/img/user.png') }}" alt="avatar" style="width: 40px; height:40px;" class="img-profile rounded-box">
+                                            </td>
+                             @endif
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>
+                                    <form action="{{ route('admin.destroy',$user->id) }}" method="Post">
+                                        <a class="btn btn-primary" href="{{ route('admin.edit',$user->id) }}">Edit</a>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>
