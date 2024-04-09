@@ -19,7 +19,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                   <div class="navbar-profile">
-                    <img class="img-xs rounded-circle" src="../dashboard/assets/images/faces/face15.jpg" alt="">
+                    <img class="img-xs rounded-circle" src="../dashboard/assets/images/faces/ss.png" alt="">
                     @auth
                              <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ Auth::user()->name }}</p>
                     @endauth

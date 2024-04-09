@@ -25,9 +25,10 @@
     <table class="table table-bordered">
         <tr>
             <th>#</th>
-            <th>Grade Level</th>
-            <th>Year Graduated</th>
-            <th>School</th>
+            <th>Work Experience</th>
+            <th>Date Hired</th>
+            <th>Address</th>
+            <th>Description</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($experiences as $experience)

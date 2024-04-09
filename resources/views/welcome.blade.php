@@ -152,18 +152,20 @@
 
     <div class="container py-5">
       <h1 class="text-center fw-normal wow fadeIn">My Skills</h1>
+      @foreach($skills as $skill) 
       <div class="row py-3">
         <div class="col-md-6">
           <div class="px-lg-3">
             <h4 class="wow fadeInUp">Coding skills</h4>
             
             <div class="progress-wrapper wow fadeInUp">
-              <span class="caption">HTML + CSS</span>
+              <span class="caption">{{$skill->skill_name}}</span>
               <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">100%</div>
+                <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">{{$skill->percentage}}%</div>
               </div>
             </div>
           </div>
+          @endforeach
         </div>
         <div class="col-md-6">
           <div class="px-lg-3">
@@ -185,120 +187,38 @@
       <div class="row">
         <div class="col-md-6 wow fadeInRight">
           <h2 class="fw-normal">Education</h2>
+        @foreach($educations as $education )
           <ul class="timeline mt-4 pr-md-5">
             <li>
-              <div class="title">2010</div>
+              <div class="title">{{$education->year_graduated}}</div>
               <div class="details">
-                <h5>Specialize of course</h5>
-                <small class="fg-theme">University of Study</small>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
+                <h5>{{$education->grade_level}}</h5>
+                <p>{{ $education->school }}</p>
               </div>
             </li>
-            <li>
-              <div class="title">2009</div>
-              <div class="details">
-                <h5>Specialize of course</h5>
-                <small class="fg-theme">University of Study</small>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
-              </div>
-            </li>
-            <li>
-              <div class="title">2008</div>
-              <div class="details">
-                <h5>Specialize of course</h5>
-                <small class="fg-theme">University of Study</small>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
-              </div>
-            </li>
+          @endforeach
           </ul>
         </div>
         <div class="col-md-6 wow fadeInRight" data-wow-delay="200ms">
           <h2 class="fw-normal">Experience</h2>
+          @foreach($experiences as $experience )
           <ul class="timeline mt-4 pr-md-5">
             <li>
-              <div class="title">2017 - Current</div>
+              <div class="title">{{$experience->date_hire}}</div>
               <div class="details">
-                <h5>Specialize of course</h5>
-                <small class="fg-theme">University of Study</small>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
+                <h5>{{$experience->work_experience}}</h5>
+                <small class="fg-theme">{{$experience->address}}</small>
+                <p>{{$experience->description}}</p>
               </div>
             </li>
-            <li>
-              <div class="title">2014</div>
-              <div class="details">
-                <h5>Specialize of course</h5>
-                <small class="fg-theme">University of Study</small>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
-              </div>
-            </li>
-            <li>
-              <div class="title">2011</div>
-              <div class="details">
-                <h5>Specialize of course</h5>
-                <small class="fg-theme">University of Study</small>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered</p>
-              </div>
-            </li>
+           @endforeach
           </ul>
         </div>
       </div>
     </div>
   </div>
   
-  <div class="vg-page page-service">
-    <div class="container">
-      <div class="text-center wow fadeInUp">
-        <div class="badge badge-subhead">Service</div>
-      </div>
-      <h1 class="fw-normal text-center wow fadeInUp">What can i do?</h1>
-      <div class="row mt-5">
-        <div class="col-md-6 col-lg-4 col-xl-3">
-          <div class="card card-service wow fadeInUp">
-            <div class="icon">
-              <span class="ti-paint-bucket"></span>
-            </div>
-            <div class="caption">
-              <h4 class="fg-theme">Web Design</h4>
-              <p>There are many variations of passages of Lorem Ipsum available</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3">
-          <div class="card card-service wow fadeInUp">
-            <div class="icon">
-              <span class="ti-search"></span>
-            </div>
-            <div class="caption">
-              <h4 class="fg-theme">SEO</h4>
-              <p>There are many variations of passages of Lorem Ipsum available</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3">
-          <div class="card card-service wow fadeInUp">
-            <div class="icon">
-              <span class="ti-vector"></span>
-            </div>
-            <div class="caption">
-              <h4 class="fg-theme">UI/UX Design</h4>
-              <p>There are many variations of passages of Lorem Ipsum available</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3">
-          <div class="card card-service wow fadeInUp">
-            <div class="icon">
-              <span class="ti-desktop"></span>
-            </div>
-            <div class="caption">
-              <h4 class="fg-theme">Web Development</h4>
-              <p>There are many variations of passages of Lorem Ipsum available</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
   
   <div class="vg-page page-funfact" style="background-image: url(../homepage/assets/img/bg_banner.jpg);">
     <div class="container">
@@ -402,165 +322,9 @@
     </div>
   </div> <!-- End Portfolio page -->
   
-  <!-- Testimonial -->
-  <div class="vg-page page-testimonial">
-    <div class="container">
-      <h1 class="text-center fw-normal wow fadeInUp">What Clients are Saying</h1>
-      <div class="row justify-content-center mt-5 wow fadeInUp">
-        <div class="col-md-9">
-          <div class="owl-carousel testi-carousel">
-            <div class="item">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="img-place">
-                    <img src="../homepage/assets/img/testimonials/testimonials_1.jpg" alt="">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="caption">
-                    <div class="testi-content">There are many variations of passages of Lorem Ipsum available, but the majority have suffered</div>
-                    <div class="testi-info">
-                      <div class="thumb-profile">
-                        <img src="../homepage/assets/img/testimonials/testimonials_1.jpg" alt="">
-                      </div>
-                      <div class="tagline">
-                        <h5 class="mb-0">Satria Nugraha</h5>
-                        <span class="text-muted">CEO Nutshell</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="img-place">
-                    <img src="../homepage/assets/img/testimonials/testimonials_2.jpg" alt="">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="caption">
-                    <div class="testi-content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe natus expedita ab facilis ut, animi explicabo amet. Voluptatibus possimus iste enim, doloremque, fugiat accusamus nisi optio fugit ratione expedita harum?</div>
-                    <div class="testi-info">
-                      <div class="thumb-profile">
-                        <img src="../homepage/assets/img/testimonials/testimonials_2.jpg" alt="">
-                      </div>
-                      <div class="tagline">
-                        <h5 class="mb-0">Selena Arrini</h5>
-                        <span class="text-muted">CEO BigTree</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> <!-- End testimonial -->
+
   
-  <!-- Client -->
-  <div class="vg-page page-client">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-lg-4 col-xl-3 item">
-          <div class="img-place wow fadeInUp">
-            <img src="../homepage/assets/img/logo/company_1.svg" alt="">
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 item">
-          <div class="img-place wow fadeInUp">
-            <img src="../homepage/assets/img/logo/company_2.svg" alt="">
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 item">
-          <div class="img-place wow fadeInUp">
-            <img src="../homepage/assets/img/logo/company_3.svg" alt="">
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 item">
-          <div class="img-place wow fadeInUp">
-            <img src="../homepage/assets/img/logo/company_4.svg" alt="">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-lg-4 col-xl-3 item">
-          <div class="img-place wow fadeInUp">
-            <img src="../homepage/assets/img/logo/company_5.svg" alt="">
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 item">
-          <div class="img-place wow fadeInUp">
-            <img src="../homepage/assets/img/logo/company_6.svg" alt="">
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 item">
-          <div class="img-place wow fadeInUp">
-            <img src="../homepage/assets/img/logo/company_7.svg" alt="">
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 item">
-          <div class="img-place wow fadeInUp">
-            <img src="../homepage/assets/img/logo/company_8.svg" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> <!-- End client -->
-  
-  <!-- Blog -->
-  <div class="vg-page page-blog" id="blog">
-    <div class="container">
-      <div class="text-center">
-        <div class="badge badge-subhead wow fadeInUp">Blog</div>
-      </div>
-      <h1 class="text-center fw-normal wow fadeInUp">Latest Post</h1>
-      <div class="row post-grid">
-        <div class="col-md-6 col-lg-4 wow fadeInUp">
-          <div class="card">
-            <div class="img-place">
-              <img src="../homepage/assets/img/work/work-9.jpg" alt="">
-            </div>
-            <div class="caption">
-              <a href="javascript:void(0)" class="post-category">Technology</a>
-              <a href="#" class="post-title">Invision design forward fund</a>
-              <span class="post-date"><span class="sr-only">Published on</span> May 22, 2018</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 wow fadeInUp">
-          <div class="card">
-            <div class="img-place">
-              <img src="../homepage/assets/img/work/work-6.jpg" alt="">
-            </div>
-            <div class="caption">
-              <a href="javascript:void(0)" class="post-category">Business</a>
-              <a href="#" class="post-title">Announcing a plan for small teams</a>
-              <span class="post-date"><span class="sr-only">Published on</span> May 22, 2018</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 wow fadeInUp">
-          <div class="card">
-            <div class="img-place">
-              <img src="../homepage/assets/img/work/work-1.jpg" alt="">
-            </div>
-            <div class="caption">
-              <a href="javascript:void(0)" class="post-category">Design</a>
-              <a href="#" class="post-title">5 basic tips for illustrating</a>
-              <span class="post-date"><span class="sr-only">Published on</span> May 22, 2018</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 text-center py-3 wow fadeInUp">
-          <a href="blog-fullbar.html" class="btn btn-theme">See All Post</a>
-        </div>
-      </div>
-    </div>
-  </div> <!-- End blog -->
+
   
   <!-- Contact -->
   <div class="vg-page page-contact" id="contact">

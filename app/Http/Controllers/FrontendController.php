@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Skill;
+use App\Models\Educational;
+use App\Models\Experience;
 class FrontendController extends Controller
 {
     /**
@@ -14,9 +16,12 @@ class FrontendController extends Controller
     {
         // Fetch users with the role of admin
         $admin = User::where('role', 'admin')->get();
-        $skill = Skill::count();       
+        $skills = Skill::all();   
+        $educations = Educational::all(); 
+        $experiences = Experience::all();           
         // Pass the fetched data to the front-end view
-        return view('welcome', ['admin' => $admin, 'skill' => $skill]);
+        return view('welcome', ['admin' => $admin, 'skills' => $skills, 'educations' => $educations,
+        'experiences' => $experiences]);
     }
     /**
      * Show the form for creating a new resource.
